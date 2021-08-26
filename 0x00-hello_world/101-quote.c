@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-/*
+/**
  * main - write to stdout
  * Return: Always 0
  */
