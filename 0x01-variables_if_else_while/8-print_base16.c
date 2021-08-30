@@ -10,13 +10,13 @@ int main(void)
 
 	while (a <= 57)
 	{
+		putchar(a);
+		a++;
 		while (a > 57 && A <= 'f')
 		{
 			putchar(A);
 			A++;
 		}
-		putchar(a);
-		a++;
 	}
 	putchar('\n');
 	return (0);
