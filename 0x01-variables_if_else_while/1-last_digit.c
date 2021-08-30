@@ -20,11 +20,11 @@ int main(void)
 	}
 	else if (b == 0)
 	{
-		printf("Last digit of %d is %d and is zero\n", n, b);
+		printf("Last digit of %d is %d and is 0\n", n, b);
 	}
 	else
 	{
-		printf("Last digit of %d is %d amd is less than 6 and not 0\n", n, b);
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, b);
 	}
 	return (0);
 }
