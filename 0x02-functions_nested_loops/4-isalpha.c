@@ -1,4 +1,4 @@
-#inclide "main.h"
+#include "main.h"
 /**
  * _isalpha - prints alpha
  * @c: alpha to print
