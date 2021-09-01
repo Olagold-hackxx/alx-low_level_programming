@@ -9,7 +9,7 @@ void times_table(void)
 
 	for (i = 0; i < 10; i++)
 	{
-		for (k *= i; k < 81; k++)
+		for (k = k * i; k < 82; k++)
 		{
 			if (k < 10)
 			{
