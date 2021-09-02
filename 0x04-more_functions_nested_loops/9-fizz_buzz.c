@@ -11,6 +11,26 @@ int main(void)
 
 	for (i = 0; i <= 100; i++)
 	{
-		if ((i % 3) == 48)
+		if ((i % 3) == 0)
 		{
-			printf("
+			if (((i % 3) == 0) && ((i % 5) == 0))
+			{
+				printf("FizzBuzz ");
+			}
+			printf("Fizz ");
+		}
+		else if ((i % 5) == 0)
+		{
+			if (((i % 3) == 0) && ((i % 5) == 0))
+			{
+				printf("FizzBuzz ");
+			}
+			printf("Buzz ");
+		}
+		else
+		{
+			printf("%d ", i);
+		}
+	}
+	putchar('\n');
+}

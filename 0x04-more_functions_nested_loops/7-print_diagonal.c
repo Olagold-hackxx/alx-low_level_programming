@@ -17,9 +17,9 @@ void print_diagonal(int n)
 	{
 		for (j = 48; j <= i; j++)
 		{
-			if (c == d)
+			if (i == j)
 			{
-				_putchar('_');
+				_putchar('\\');
 				_putchar('\n');
 			}
 			else
@@ -28,4 +28,5 @@ void print_diagonal(int n)
 			}
 		}
 	}
+	_putchar('\n');
 }
