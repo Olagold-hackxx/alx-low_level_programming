@@ -5,6 +5,7 @@
  * @c: int to print
  * Return: 1 on success
  */
+
 int _isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
