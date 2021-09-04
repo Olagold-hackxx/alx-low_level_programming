@@ -17,7 +17,7 @@ int main(void)
 		k = i + j;
 		if (k == 1)
 		{
-			printf("%d", k)
+			printf("%d", k);
 		}
 		else
 		{
