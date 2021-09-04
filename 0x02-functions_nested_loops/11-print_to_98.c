@@ -1,72 +1,37 @@
 #include "main.h"
 /**
  * print_to_98 - print to 98
- * @n: print to 98
+ * @n: print to 9g8
  * Return: void
  */
 void print_to_98(int n)
 {
+	int i;
+
 	if (n < 98)
 	{
-		for (; n < 98; n++)
+		for (i = n; i <= 98; i++)
 		{
-			if (n < 10)
+			printf("%d", i);
+			if (i != 98)
 			{
-				if (n < 0)
-				{
-					if (n < -10)
-					{
-						_putchar(n + '0');
-					}
-					else
-					{
-						_putchar((n / 10) + '0');
-						_putchar((n % 10) + '0');
-					}
-				}
-				else
-				{
-					_putchar(n + '0');
-				}
-			}
-			else
-			{
-				_putchar((n / 10) + '0');
-				_putchar((n % 10) + '0');
-			}
-			if (n != 98)
-			{
-				_putchar(',');
-				_putchar(' ');
+				printf(", ");
 			}
 		}
-						
 	}
 	else if (n == 98)
 	{
-		_putchar(n + '0');
+		putchar(n);
 	}
 	else
 	{
-		for (; n > 98; n--)
+		for (i = n; i >= 98; i++)
 		{
-			if (n > 99)
+			printf("%d", i);
+			if (i != 98)
 			{
-				_putchar((n / 100) + '0');
-				_putchar(((n / 10) % 10) + '0');
-				_putchar((n % 10) + '0');
+				printf(", ");
 			}
-			else
-			{
-				_putchar((n / 10) + '0');
-				_putchar((n % 10) + '0');
-			}
-		}
-		if (n != 98)
-		{
-			_putchar(',');
-			_putchar(' ');
 		}
 	}
 }
-
