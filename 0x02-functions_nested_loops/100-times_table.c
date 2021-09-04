@@ -28,6 +28,10 @@ void print_times_table(int n)
 					{
 						printf(",  %d", i * j);
 					}
+					else if ((i * j) > 99)
+					{
+						printf(", %d", i * j);
+					}
 					else
 					{
 						printf(",   %d", i * j);
