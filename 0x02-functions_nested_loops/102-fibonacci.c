@@ -8,7 +8,7 @@
 int main(void)
 {
 	int i, j, n;
-	unsigned int k;
+	long unsigned int k;
 
 	i = 0;
 	j = 1;
