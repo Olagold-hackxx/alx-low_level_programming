@@ -10,22 +10,19 @@ int main(void)
 	int i, j, n;
 	unsigned long int k;
 
-	i = 0;
+	i = 1;
 	j = 1;
 
-	for (n = 0; n <= 50; n++)
+	printf("%d", j);
+	for (n = 1; n <= 50; n++)
 	{
 		k = i + j;
-		if (k == 1)
-		{
-			printf("%lu", k);
-		}
-		else
 		{
 			printf(", %lu", k);
 		}
 		i = j;
 		j = k;
 	}
+	putchar(' ');
 	return (0);
 }
