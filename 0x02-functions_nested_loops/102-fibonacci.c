@@ -21,7 +21,7 @@ int main(void)
 		}
 		else
 		{
-			printf(", %d", k);
+			printf(", %lu", k);
 		}
 		i = j;
 		j = k;
