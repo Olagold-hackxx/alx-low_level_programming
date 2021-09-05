@@ -21,6 +21,6 @@ int main(void)
 		i = j;
 		j = k;
 	}
-	putchar('\n');
+	printf("\n");
 	return (0);
 }
