@@ -15,7 +15,9 @@ int main(void)
 	for (n = 1; n < 98; n++)
 	{
 		k = i + j;
-		printf(", %lu", k);
+		{
+			printf(", %lu", k);
+		}
 		i = j;
 		j = k;
 	}
