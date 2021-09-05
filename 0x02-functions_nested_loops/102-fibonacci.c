@@ -22,6 +22,6 @@ int main(void)
 		i = j;
 		j = k;
 	}
-	putchar(' ');
+	putchar('\n');
 	return (0);
 }
