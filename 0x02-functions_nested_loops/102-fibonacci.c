@@ -8,7 +8,7 @@
 int main(void)
 {
 	int i, j, n;
-	long unsigned int k;
+	unsigned int k;
 
 	i = 0;
 	j = 1;
@@ -18,11 +18,11 @@ int main(void)
 		k = i + j;
 		if (k == 1)
 		{
-			printf("%lu", k);
+			printf("%u", k);
 		}
 		else
 		{
-			printf(", %lu", k);
+			printf(", %u", k);
 		}
 		i = j;
 		j = k;
