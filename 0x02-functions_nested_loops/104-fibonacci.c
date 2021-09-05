@@ -16,7 +16,7 @@ int main(void)
 	{
 		k = i + j;
 		{
-			printf(", lu", k);
+			printf(", %lu", k);
 		}
 		i = j;
 		j = k;
