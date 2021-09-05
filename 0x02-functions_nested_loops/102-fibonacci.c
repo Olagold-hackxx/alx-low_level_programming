@@ -7,7 +7,8 @@
 
 int main(void)
 {
-	int i, j, k, n;
+	int i, j, n;
+	unsigned int k;
 
 	i = 0;
 	j = 1;
