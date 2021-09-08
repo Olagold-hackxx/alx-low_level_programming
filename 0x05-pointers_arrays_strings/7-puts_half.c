@@ -26,7 +26,7 @@ void puts_half(char *str)
 	}
 	_putchar('\n');
 }
-int _strlen(str)
+int _strlen(char *s)
 {
 	int count;
 
