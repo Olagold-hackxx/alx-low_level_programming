@@ -2,7 +2,7 @@
 
 /**
  * puts_half - puts last half of string
- * @str: ppinter to string
+ * @str: pointer to string
  * Return: void
  */
 
@@ -26,6 +26,11 @@ void puts_half(char *str)
 	}
 	_putchar('\n');
 }
+/**
+ * _strlen - puts string length
+ * @s: pointer to string
+ * Return: void
+ */
 int _strlen(char *s)
 {
 	int count;
