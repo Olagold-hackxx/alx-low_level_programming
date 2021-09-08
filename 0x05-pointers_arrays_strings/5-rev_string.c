@@ -2,6 +2,7 @@
 
 /**
  * rev_string - reverse the string
+ * _strlen - print length of string
  * @s: pointer to string to reverse
  * Return: void
  */
@@ -10,6 +11,7 @@ void rev_string(char *s)
 {
 	int len, i;
 	char *begin, *end, temp;
+
 	begin = s;
 	end = s;
 
