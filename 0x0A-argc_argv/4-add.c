@@ -12,15 +12,16 @@
 int num_check(char *s)
 {
 	size_t i;
+	int num;
 
 	for (i = 0; i < strlen(s); i++)
 	{
 		if (s[i] < '0' || s[i] > '9')
 			return (-1);
-		else
-			return (1);
+		if (s[i] >= '0' || s[i] <= '9')
+			num++;
 	}
-	return (0);
+	return (num);
 }
 /**
  * main - add args
