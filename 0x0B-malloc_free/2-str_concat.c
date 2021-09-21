@@ -19,7 +19,7 @@ size_t _strlen(char *s)
 }
 char *str_concat(char *s1, char *s2)
 {
-	char s3;
+	char *s3;
 	int j;
 	size_t i;
 
