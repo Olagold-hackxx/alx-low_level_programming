@@ -30,18 +30,18 @@ char *str_concat(char *s1, char *s2)
 	int j;
 	size_t i;
 
-	s3 = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2) + 1));
-
 	if (s1 == NULL)
 		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+;
+	s3 = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2) + 1));
 	for (i = 0; i < _strlen(s1); i++)
 	{
 		if (s3 == NULL)
 			return (NULL);
 		s3[i] = s1[i];
-	}
-	if (s2 == NULL)
-		s2 = "";
+	};
 	for (j = 0; s2[j] != '\0'; j++)
 	{
 		s3[i + j] = s2[j];
