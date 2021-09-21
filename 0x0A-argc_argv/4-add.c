@@ -18,7 +18,7 @@ int num_check(char *s)
 		if (s[i] < '0' || s[i] > '9')
 			return (-1);
 		else
-			return (1);;
+			return (1);
 	}
 	return (0);
 }
@@ -26,13 +26,15 @@ int num_check(char *s)
  * main - add args
  * @argc: no of args
  * @argv: pointer to args
- * Return: 0 on success 1 otherwise
+ * Return: 0 on success and 1 otherwise
  */
 
 int main(int argc, char *argv[])
 {
 	int i, sum = 0, num;
 
+	if (argc < 2)
+		printf("0\n");
 	for (i = 1; i < argc; i++)
 	{
 		num = num_check(argv[i]);

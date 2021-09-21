@@ -5,20 +5,19 @@
  * main - print minimum no of coins to make change
  * @argc: args count
  * @argv: array of pointer to args
- * Return: 0 on succes 1 otherwise
+ * Return: 0 on success 1 otherwise
  */
 
 int main(int argc, char *argv[])
 {
 	int amount, coins = 0;
 
-	amount = atoi(argv[1]);
-
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	amount = atoi(argv[1]);
 	while (amount >= 25)
 	{
 		amount -= 25;
