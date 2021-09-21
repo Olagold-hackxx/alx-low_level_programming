@@ -7,7 +7,7 @@
  * Return: string length
  */
 
-size_t _strlen(char *s);
+size_t _strlen(char *s)
 {
 	size_t len;
 
