@@ -11,7 +11,7 @@
 
 int num_check(char *s)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < strlen(s); i++)
 	{
@@ -33,8 +33,6 @@ int main(int argc, char *argv[])
 {
 	int i, sum = 0, num;
 
-	if (argc < 2)
-		printf("0\n");
 	for (i = 1; i < argc; i++)
 	{
 		num = num_check(argv[i]);
