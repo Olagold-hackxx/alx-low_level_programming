@@ -4,7 +4,7 @@
 /**
  * create_array - create an array
  * @size: size of array
- * @c: char 
+ * @c: char
  * Return: array
  */
 
