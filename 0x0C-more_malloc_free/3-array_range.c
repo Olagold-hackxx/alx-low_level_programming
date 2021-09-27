@@ -3,9 +3,10 @@
 
 /**
  * array_range - gets range of array in ascending order
- * 	and allocates memory
+ * and allocates memory
  * @min: minimum value
  * @max: maximum value
+ * Return: array from min to max
  */
 
 int *array_range(int min, int max)
