@@ -1,6 +1,19 @@
 #include <stdlib.h>
 #include "dog.h"
+/**
+ * _strlen - get string length
+ * @s: pointer to string
+ * Return: string length
+ */
 
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*(s + len) != '\0')
+		len++;
+	return (len);
+}
 /**
  * new_dog - copy and store struct
  * @name: pointer element of struct dog
@@ -27,17 +40,3 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog->owner = owner;
 	return (dog);
 }
-
-/**
- * _strlen - get string length
- * @s: pointer to string
- * Return: string length
- */
-
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*(s + len) != '\0')
-		len++;
-	return (len);
