@@ -1,4 +1,4 @@
-#include "function_pointers.h"
+#include <stdlib.h>
 
 /**
  * int_index - func ptr to get int index
