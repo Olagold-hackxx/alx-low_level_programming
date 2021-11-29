@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * frree_listint - free linked list
+ * free_listint - free linked list
  * @head: ptr to head of list
  * Return: void
  */

@@ -3,7 +3,7 @@
 /**
  * delete_nodeint_at_index - delete node at given index
  * @head: ptr to ptr to head
- * @index: given index of node to be delete 
+ * @index: given index of node to be delete
  * Return: 1 at success , -1 otherwise
  */
 
