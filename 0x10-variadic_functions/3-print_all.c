@@ -73,8 +73,6 @@ void print_all(const char * const format, ...)
 	
 	va_start(list, format);
 	sep = "";
-	if (format == NULL)
-		return;
 	j = 0;
 	while (j < len)
 	{

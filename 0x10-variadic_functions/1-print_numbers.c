@@ -12,7 +12,8 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list(ap);
-	int i, *array;
+	unsigned int i; 
+	int *array;
 	array = (int *)malloc(n * sizeof(int));
 
 	va_start(ap, n);
