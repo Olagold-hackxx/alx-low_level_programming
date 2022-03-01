@@ -77,7 +77,7 @@ void print_all(const char * const format, ...)
 	while (format != NULL && format[j] != '\0')
 	{
 		i = 0;
-		while (i < 3)
+		while (i < 4)
 		{
 			if (format[j] == *(form[i].det))
 			{

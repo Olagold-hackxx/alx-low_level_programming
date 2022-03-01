@@ -4,16 +4,17 @@
 
 /**
  * print_numbers - varadic funcs to print numbers
- * @separator - comma to separate int
- * @n: numver of ints
+ * @separator: comma to separate int
+ * @n: number of ints
  * Return: void
  */
 
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list(ap);
-	unsigned int i; 
+	unsigned int i;
 	int *array;
+
 	array = (int *)malloc(n * sizeof(int));
 
 	va_start(ap, n);
@@ -25,8 +26,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		{
 			if (separator == NULL)
 				;
-		        else
-				printf("%s ", separator);
+			else
+			printf("%s", separator);
 		}
 		printf("%d", array[i]);
 		if (i == (n - 1))
