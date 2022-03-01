@@ -20,10 +20,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		ptr = va_arg(ap, char *);
 		if (ptr == NULL)
 			printf("(nil)");
-		else
-			printf("%s", ptr);
+		printf("%s", ptr);
 		if (i != (n - 1) && separator != NULL)
-			printf("%s ", separator);
+			printf("%s", separator);
 	}
 	va_end(ap);
 	printf("\n");

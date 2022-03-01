@@ -45,12 +45,12 @@ void print_float(va_list list, char *sep)
 
 void print_string(va_list list, char *sep)
 {
-	char *ptr;
+	char *str;
 
-	ptr = va_arg(list, char *);
-	if (ptr == NULL)
-		ptr = "(nil)";
-	printf("%s%s", sep, ptr);
+	str = va_arg(list, char *);
+	if (str == NULL)
+		printf("(nil)");
+	printf("%s%s", sep, str);
 }
 /**
  * print_all - print all types of data
@@ -62,22 +62,22 @@ void print_all(const char * const format, ...)
 {
 	va_list(list);
 	char *sep;
-	int i, j, len = strlen(format);
+	int i, j;
 	all_f form[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
 		{"s", print_string},
-		{"NULL", NULL}
 	};
-	
+
+
 	va_start(list, format);
 	sep = "";
 	j = 0;
-	while (j < len)
+	while (format != NULL && format[j] != '\0')
 	{
 		i = 0;
-		while (i < 4)
+		while (i < 3)
 		{
 			if (format[j] == *(form[i].det))
 			{
