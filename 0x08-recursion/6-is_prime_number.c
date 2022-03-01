@@ -8,12 +8,13 @@
 
 int is_prime_number(int n)
 {
-	if (n <= 1)
-		return (check_prime(n, _sqrt_recursion(n)));
+	if (n < 2)
+		return (0);
+	return (check_prime(n, _sqrt_recursion(n)));
 }
 
 /**
- * check_prime - check for prime numbers
+ * check_prime - check forprime numbers
  * @n: int to check if prime
  * @divisor: divide to check if prime
  * Return: Return 1 if prime 0 if not
@@ -23,7 +24,7 @@ int check_prime(int n, int divisor)
 {
 	if (n < 0)
 		return (0);
-	if (divisor < 2)
+	if (divisor == 1)
 		return (1);
 	if (n % divisor == 0)
 		return (0);
@@ -56,7 +57,7 @@ int _sqrt_recursion(int n)
 int find_sqrt(int mid, int perfect_sqr)
 {
 	if (mid > perfect_sqr)
-		return (-1);
+		return (perfect_sqr - 1);
 	if (mid * mid == perfect_sqr)
 		return (mid);
 	return (find_sqrt(mid + 1, perfect_sqr));

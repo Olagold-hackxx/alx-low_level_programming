@@ -30,5 +30,5 @@ int find_sqrt(int mid, int perfect_sqr)
 		return (-1);
 	if (mid * mid == perfect_sqr)
 		return (mid);
-	return (find_sqrt(mid + 1, perfect sqr));
+	return (find_sqrt(mid + 1, perfect_sqr));
 }
