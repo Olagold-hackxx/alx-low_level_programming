@@ -2,7 +2,7 @@
 
 /**
  * sum_them_all - varadic func to add args
- * @count: no of args
+ * @n: no of args
  * Return: sum of all args
  */
 

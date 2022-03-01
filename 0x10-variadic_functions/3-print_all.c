@@ -49,7 +49,7 @@ void print_string(va_list list, char *sep)
 
 	str = va_arg(list, char *);
 	if (str == NULL)
-		printf("(nil)");
+		str = "(nil)";
 	printf("%s%s", sep, str);
 }
 /**
