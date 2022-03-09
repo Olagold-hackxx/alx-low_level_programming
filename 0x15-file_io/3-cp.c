@@ -9,7 +9,7 @@
  * Return: void
  */
 
-void error_handler( int file_from, int file_to, char **av)
+void error_handler(int file_from, int file_to, char **av)
 {
 	if (file_from == -1)
 	{
@@ -46,9 +46,7 @@ int main(int ac, char **av)
 		error_handler(fd_from, 0, av);
 	fd_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
-	{
-		error_handler(0, fd_to, av);
-	}
+		return (0);
 	readLength = 1024;
 	while (readLength == 1024)
 	{
