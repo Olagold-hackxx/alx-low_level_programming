@@ -44,7 +44,7 @@ int main(int ac, char **av)
 	fd_from = open(av[1], O_RDONLY);
 	if (fd_from == -1)
 		error_handler(fd_from, 0, av);
-	fd_to = open(av[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+	fd_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		error_handler(0, fd_to, av);
