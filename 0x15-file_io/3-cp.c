@@ -3,7 +3,8 @@
 
 /**
  * main - copy file content into another
- *
+ * @ac: number of arguments
+ * @av: args passed
  * Return: 1 on success 100, 99, 98 and 97 on error
  */
 
