@@ -46,7 +46,7 @@ int main(int ac, char **av)
 		error_handler(fd_from, 0, av);
 	fd_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
-		return (0);
+		error_handler(0, fd_to, av);;
 	readLength = 1024;
 	while (readLength == 1024)
 	{
