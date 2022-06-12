@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -19,8 +17,8 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		current = current->next;
 		if (current != NULL && i == index - 1)
 		{
-			current = current->next;
 			return (current);
 		}
+	}
 	return (NULL);
 }
