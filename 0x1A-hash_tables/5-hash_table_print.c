@@ -10,7 +10,6 @@ void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *temp = NULL;
 	unsigned long int index, i = 0;
-	char *sep = ", ";
 
 	if (!ht)
 		return;
