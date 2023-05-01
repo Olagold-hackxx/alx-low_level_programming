@@ -2,17 +2,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+* print_str - checks if characters is digit
+* @str: string to print
+*/
 void print_str(char *str)
 {
 	printf("%s\n", str);
 }
 
 /**
- * _isdigit - checks if characters is digit
- * @c: character to be checked
- *
- * Return: 1 on Success, 0 on Fail
- */
+* _isdigit - checks if characters is digit
+* @c: character to be checked
+*
+* Return: 1 on Success, 0 on Fail
+*/
 int _isdigit(char *str)
 {
 	int i;
@@ -23,7 +27,13 @@ int _isdigit(char *str)
 	return (1);
 }
 
-int str_len(char *str)
+/**
+* _strlen - calc length of string
+* @str: the string
+*
+* Return: 1 on Success, 0 on Fail
+*/
+int _strlen(char *str)
 {
 	int i;
 
@@ -33,9 +43,16 @@ int str_len(char *str)
 	return(i);
 }
 
+/**
+* add_str- add strings
+* @result: str
+* @buffer: str2
+* @i: number of bytes of buffer to add result
+* Return: new string
+*/
 char *add_str(char *result, char *buffer, int i)
 {
-	int result_len = str_len(result);
+	int result_len = _strlen(result);
 	int k, j, sum = 0, carry = 0;
 
 	char *new_result;
@@ -76,12 +93,18 @@ char *add_str(char *result, char *buffer, int i)
 	return (new_result);
 }
 
+/**
+* mul_str- multiply strings holding int
+* @num1: str
+* @num2: str2
+* Return: new string
+*/
 char *mul_str(char *num1, char *num2)
 {
 	int prod, carry = 0;
 	int i, j, k, place_cnt = 0;
-	int num1_len = str_len(num1);
-	int num2_len = str_len(num2);
+	int num1_len = _strlen(num1);
+	int num2_len = _strlen(num2);
 
 	char *result, *buffer;
 
@@ -135,10 +158,10 @@ char *mul_str(char *num1, char *num2)
 }
 
 /**
- * main - multiply two pos numbers
- * @argc: argument count
- * @argv: argument(s)
- */
+* main - multiply two pos numbers
+* @argc: argument count
+* @argv: argument(s)
+*/
 int main(int argc,char **argv)
 {
 	char *num1 = argv[1];
