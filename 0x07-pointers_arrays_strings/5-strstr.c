@@ -9,25 +9,32 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *occur;
+	int i, hay_cnt, match = 0;
 
-	if (!*needle)
-		return (haystack);
-	while (*haystack)
+	/* loop through haystack string */
+	for (hay_cnt = 0; haystack[hay_cnt] != '\0'; hay_cnt++)
 	{
-		if (*haystack == *needle)
+		if (haystack[hay_cnt] == needle[0])
 		{
-			occur = haystack;
-			while (*needle)
+			for (i = 0; needle[i] != '\0';)
 			{
-				if (*haystack++ != *needle++)
-					haystack = occur;
-				if (*haystack != *occur)
-					return (occur);
-				needle++;
+				/* comparing haystack to needle sequence */
+				if (haystack[hay_cnt + i] == needle[i])
+				{
+					match = 1;
+				}
+				else
+				{
+					match = 0;
+					break;
+				}
+				i++;
 			}
+			if (match)
+				return ((haystack + hay_cnt));
 		}
-		haystack++;
 	}
-	return (0);
+	if (needle[0] == '\0')
+		return (haystack);
+	return ('\0');
 }

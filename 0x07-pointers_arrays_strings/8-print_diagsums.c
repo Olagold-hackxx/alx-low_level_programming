@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -8,16 +9,18 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i, diag1 = 0, sum1 = 0, sum2 = 0, diag2 = 0, row = 0;
+	int row, col, fwd_sum = 0, bwd_sum = 0;
 
-	for (i = 0; i < size * size; i++)
+	for (row = 0; row < size; row++)
 	{
-		if (i == diag1 + (row * size))
-			sum1 += a[i];
-		if (i == (size - diag2 - 1) + (row * size))
-			sum2 += a[i];
-		if ((i + 1) % size == 0)
-			row++, diag1++, diag2++;
+		for (col = row; col <= row; col++)
+		{
+			fwd_sum += *(a + ((row * size) + col));
+		}
+		for (col = (size - 1) - row; col >= (size - 1) - row; col--)
+		{
+			bwd_sum += *(a + ((row * size) + col));
+		}
 	}
-	printf("%d, %d\n", sum1, sum2);
+	printf("%d, %d\n", fwd_sum, bwd_sum);
 }

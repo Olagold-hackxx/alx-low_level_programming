@@ -5,16 +5,16 @@
  * @a: pointer to array
  * Return: void
  */
-
 void print_chessboard(char (*a)[8])
 {
-	int i, j;
+	int row, col;
 
-	for (i = 0; i < 8; i++)
-	{
-		for (j = 0; j < 8; j++)
+	for (row = 0; row < 8; row++)
+		for (col = 0; col < 8; col++)
 		{
-			putchar(a[i][j]);
+			_putchar(a[row][col]);
+
+			if ((col + 1) % 8 == 0)
+				_putchar('\n');
 		}
-	}
 }
