@@ -1,43 +1,39 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <stdio.h>
 /**
- * insert_dnodeint_at_index - insert node at an index
- * @h: ptr to ptr to head
- * @idx: index to insert node
- * @n: int to insert at node
- * Return: adress of new node
+ * delete_dnodeint_at_index - delete node at index
+ * @head: head of list
+ * @index: position of node to delete in list
+ *
+ * Return: 1 on Success, -1 on Failure
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *current, *temp;
-	unsigned int i;
+	dlistint_t *temp;
+	unsigned int i = 0;
 
-	current = *head;
+	if (!head || !(*head))
+		return (-1);
+
 	temp = *head;
-	i = 0;
-	while (current)
-	{
-		if (i != index)
-			current = current->next;
-		else
+	for (; temp; temp = temp->next, i++) /* iterate till end of list */
+		if (i == index) /* if indexed node found */
 		{
-			if (current->prev)
+			if (i == 0 && temp->next == NULL)
+				*head = NULL;
+			else if (i == 0)
 			{
-				current->prev->next = current->next;
-				current->next->prev = current->prev;
-				free(current);
-				return (1);
+				temp->next->prev = NULL;
+				*head = temp->next;
 			}
+			else if (temp->next == NULL)
+				temp->prev->next = NULL;
 			else
 			{
-				current = current->next;
-				current->prev = NULL;
-				free(temp);
-				return (1);
+				temp->prev->next = temp->next;
+				temp->next->prev = temp->prev;
 			}
+			free(temp);
+			return (1);
 		}
-		i++;
-	}
 	return (-1);
 }
