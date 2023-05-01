@@ -35,7 +35,6 @@ int wildcmp(char *s1, char *s2)
 				return (wildcmp(s1 + subcmp(s1, s2, (_strlen_recursion(s1) - 1)), s2 + 1));
 			}
 		}
-		return (1);
 	}
 	return (1);
 }
