@@ -10,20 +10,23 @@
  */
 char *_strchr(char *s, char c)
 {
-	int i, length;
 
-	for (i = 0; *(s + i) != 0; i++)
-		length++;
-
-	/* account for null */
-	length++;
-
-	i = 0;
-	while (i < length)
+	while (*s != '\0') /*Declaring WHILE*/
 	{
-		if (*(s + i) == c)
-			return ((s + i));
-		i++;
+		if (*s == c) /*if s ==  c*/
+		{
+			return (s); /*return s*/
+		}
+
+		++s;
 	}
-	return ('\0');
+
+	if (*s == c)
+	{
+		return (s);
+
+	}
+
+
+	return (0);/* values null*/
 }
