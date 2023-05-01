@@ -56,8 +56,7 @@ char *add_str(char *result, char *buffer, int i)
 	int k, j, sum = 0, carry = 0;
 
 	char *new_result;
-	
-	printf("In add: result = \"%s\", buffer = \"%s\"\n", result, buffer);
+
 	/* allocate mem for sum str & null-byte */
 	new_result = malloc(sizeof(char) * (result_len + 1));
 	if (new_result == NULL)
@@ -88,7 +87,6 @@ char *add_str(char *result, char *buffer, int i)
 				new_result[k + j + 1] = '\0';
 		}
 	}
-	printf("new_result = \"%s\"\n", new_result);
 	/* return sum */
 	return (new_result);
 }
@@ -121,17 +119,13 @@ char *mul_str(char *num1, char *num2)
 	if (buffer == NULL || result == NULL)
 		return(NULL);
 
-	printf("Entering mul_str:\nnum1 = %s\nnum2 = %s\n", num1, num2);
-
 	for (i = num1_len - 1; i >= 0; i--, place_cnt++) /* loop through num1 */
 	{
 		carry = k = 0;
 		for (j = num2_len - 1; j >= 0; j--, k++) /* loop through num2 */
 		{
 			/* multiply converted chars */
-			printf("num1[%d] = %c, num2[%d] = %c\n", i, num1[i], j, num2[j]);
 			prod = (num1[i] - '0') * (num2[j] - '0');
-			printf("prod = %d\n", prod);
 			/* grab remainder for digit */
 			buffer[k] = ((prod % 10) + carry) + '0';
 			printf("buffer[%d] = %c\n", k, buffer[k]);
@@ -148,7 +142,6 @@ char *mul_str(char *num1, char *num2)
 				else
 					buffer[k + 1] = '\0';
 			}
-			printf("buffer = %s\n", buffer);
 		}
 		/* add buffer to result */
 		result = add_str(result, buffer, place_cnt);
