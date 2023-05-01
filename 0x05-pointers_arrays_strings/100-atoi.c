@@ -1,23 +1,44 @@
 #include "main.h"
 
 /**
- * _atoi - coberts string to int
- * @s: pointer to string
- * Return: int
+ * is_numerical - Check if is a digit
+ * @n: Number
+ * Return: If is a number, return 1 else return 0
  */
+int is_numerical(unsigned int n)
+{
+	return (n >= '0' && n <= '9');
+}
 
+/**
+ * _atoi - Convert a string to a number
+ * @s: String
+ * Return: Return the num
+ */
 int _atoi(char *s)
 {
-	int i = 0;
-	int sign = 1;
-	unsigned int res = 1;
+	unsigned int number, i;
+	int sign;
 
-	if (s[i] == '-')
+	sign = 1;
+	number = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		sign = -1;
-		i++;
+		if (is_numerical(s[i]))
+		{
+			number = (s[i] - 48)  + number * 10;
+
+			if (s[i + 1] == ' ')
+				break;
+		}
+		else if (s[i] == '-')
+		{
+			sign *= -1;
+		}
+
 	}
-	for (; s[i] != '\0'; i++)
-		res = (res * 10) + (s[i] - '0');
-	return (sign * res);
+
+	return (number * sign);
+
 }
