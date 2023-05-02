@@ -62,8 +62,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(key, temp->key) <= 0)
 		{
-			free(temp->value);
-			temp->value = strdup(value);
+			if (temp->value != NULL)
+			{
+				free(temp->value);
+				temp->value = strdup(value);
+			}
 			new->snext = temp;
 			new->sprev = temp->sprev;
 			temp->sprev = new;
