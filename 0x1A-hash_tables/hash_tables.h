@@ -85,6 +85,10 @@ void shash_table_print(const shash_table_t *ht);
 char *shash_table_get(const shash_table_t *ht, const char *key);
 int shash_table_set(shash_table_t *ht, const char *key, const char *value);
 shash_table_t *shash_table_create(unsigned long int size);
+int rep_val(shash_table_t *ht, const char *key, const char *value, int lis_typ);
+shash_node_t *set_value(shash_table_t *ht, const char *key, const char *value);
+
+
 
 
 #endif /* HASH_TABLES_H */
