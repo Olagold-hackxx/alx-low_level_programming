@@ -60,13 +60,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	while (temp) /* for beginning/middle additions */
 	{
-		if (strcmp(key, temp->key) <= 0)
+		if (strcmp(key, temp->key) < 0)
 		{
-			if (temp->value != NULL)
-			{
-				free(temp->value);
-				temp->value = strdup(value);
-			}
 			new->snext = temp;
 			new->sprev = temp->sprev;
 			temp->sprev = new;
@@ -74,6 +69,14 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 				ht->shead = new;
 			else
 				new->sprev->snext = new;
+			return (1);
+		}
+		else if (strcmp(key, temp->key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(value);
+			if (temp->value == NULL)
+				return (0);
 			return (1);
 		}
 		if (temp->snext)
