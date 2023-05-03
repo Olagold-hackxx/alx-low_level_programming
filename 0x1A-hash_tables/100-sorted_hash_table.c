@@ -68,7 +68,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			return (1);
 		}
 		else if (strcmp(key, temp->key) == 0)
+		{
 			rep_val(ht, key, value, 1);
+			return (1);
+		}
 		if (temp->snext)
 			temp = temp->snext;
 		else
@@ -77,8 +80,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	temp->snext = new; /* if tail reached, add to end */
 	new->sprev = temp;
 	ht->stail = new; /* set new tail */
-	return (1);
-}
+	return (1); }
 /**
  * shash_table_get - retrieve value from hash table
  * @ht: hash table
@@ -215,7 +217,7 @@ int rep_val(shash_table_t *ht, const char *key, const char *value, int typ)
 		tmp->value = strdup(value);
 		if (tmp->value == NULL)
 			exit(0);
-		exit(1);
+		return (1);
 	}
 	return (0);
 }
