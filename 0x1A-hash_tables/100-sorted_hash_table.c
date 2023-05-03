@@ -193,8 +193,8 @@ int rep_val(shash_table_t *ht, const char *key, const char *value, int typ)
 	unsigned long int index;
 
 	index = hash_djb2((const unsigned char *)key) % ht->size;
-	if (ht == NULL)
-		return (0);
+	if (!ht || !key)
+		exit(0);
 	tmp = ht->array[index];
 	if (typ == 0)
 	{
@@ -236,7 +236,7 @@ shash_node_t *set_value(shash_table_t *ht, const char *key, const char *value)
 
 	new = malloc(sizeof(shash_node_t));
 	if (!new)
-		return (0);
+		exit(0);
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	new->key = strdup(key); /* store key in node */
 	new->value = strdup(value); /* dup value to node */
