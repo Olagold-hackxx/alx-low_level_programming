@@ -41,11 +41,12 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int check_set_replace;
-	shash_node_t *new = NULL, *temp = ht->shead;
+	shash_node_t *new = NULL, *temp;
 
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
 	check_set_replace = rep_val(ht, key, value, 0);
+	temp = ht->shead;
 	if (check_set_replace == 0)
 		new = set_value(ht, key, value);
 	if (temp == NULL) /* if list is empty */
@@ -67,10 +68,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			return (1);
 		}
 		else if (strcmp(key, temp->key) == 0)
-		{
 			rep_val(ht, key, value, 1);
-			return (1);
-		}
 		if (temp->snext)
 			temp = temp->snext;
 		else
@@ -194,7 +192,7 @@ int rep_val(shash_table_t *ht, const char *key, const char *value, int typ)
 
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	if (!ht || !key)
-		return (0);
+		exit(0);
 	tmp = ht->array[index];
 	if (typ == 0)
 	{
@@ -217,7 +215,7 @@ int rep_val(shash_table_t *ht, const char *key, const char *value, int typ)
 		tmp->value = strdup(value);
 		if (tmp->value == NULL)
 			exit(0);
-		return (1);
+		exit(1);
 	}
 	return (0);
 }
@@ -236,7 +234,7 @@ shash_node_t *set_value(shash_table_t *ht, const char *key, const char *value)
 
 	new = malloc(sizeof(shash_node_t));
 	if (!new)
-		return (0);
+		exit(0);
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	new->key = strdup(key); /* store key in node */
 	new->value = strdup(value); /* dup value to node */
