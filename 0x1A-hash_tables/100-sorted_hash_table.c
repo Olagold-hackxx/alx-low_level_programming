@@ -45,10 +45,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
-	new = malloc(sizeof(shash_node_t));
 	check_set_replace = rep_val(ht, key, value, 0);
 	if (check_set_replace == 0)
-		new = set_value(ht, new, key, value);
+		new = set_value(ht, key, value);
 	if (temp == NULL) /* if list is empty */
 	{
 		ht->shead = ht->stail = new;
@@ -230,10 +229,14 @@ int rep_val(shash_table_t *ht, const char *key, const char *value, int typ)
  * Return: 1 if value replaced, 0 if value need to be set
 */
 
-shash_node_t *set_value(shash_table_t *ht, shash_node_t *new, const char *key, const char *value)
+shash_node_t *set_value(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	shash_node_t *new;
 
+	new = malloc(sizeof(shash_node_t));
+	if (!new)
+		exit(0);
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 	new->key = strdup(key); /* store key in node */
 	new->value = strdup(value); /* dup value to node */
