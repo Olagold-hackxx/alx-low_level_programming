@@ -1,5 +1,4 @@
 #include "hash_tables.h"
-
 /**
  * shash_table_create - create ordered hash table
  * @size: size of array
@@ -7,6 +6,7 @@
  * Return: pointer to new table
  */
 shash_table_t *shash_table_create(unsigned long int size)
+{
 {
 	shash_table_t *new_table = NULL;
 
@@ -30,6 +30,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 	return (new_table);
 }
+}
 /**
  * shash_table_set - set value in ordered hash table
  * @ht: pointer to hash table
@@ -40,15 +41,19 @@ shash_table_t *shash_table_create(unsigned long int size)
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int check_set_replace;
-	shash_node_t *new = NULL, *temp = ht->shead;
+	unsigned long int index;
+	shash_node_t *new = NULL, *temp = NULL;
 
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
+	index = hash_djb2((const unsigned char *)key) % ht->size;
 	new = malloc(sizeof(shash_node_t));
-	check_set_replace = rep_val(ht, key, value, 0);
-	if (check_set_replace == 0)
-		new = set_value(ht, new, key, value);
+	new->key = strdup(key); /* store key in node */
+	new->value = strdup(value); /* dup value to node */
+	new->next = ht->array[index]; /* attach new to head of list at index */
+	ht->array[index] = new; /* assign index pointer to new node */
+	new->snext = new->sprev = NULL;
+	temp = ht->shead; /* add node to sorted list */
 	if (temp == NULL) /* if list is empty */
 	{
 		ht->shead = ht->stail = new;
@@ -56,7 +61,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	while (temp) /* for beginning/middle additions */
 	{
-		if (strcmp(key, temp->key) < 0)
+		if (strcmp(key, temp->key) <= 0)
 		{
 			new->snext = temp;
 			new->sprev = temp->sprev;
@@ -65,11 +70,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 				ht->shead = new;
 			else
 				new->sprev->snext = new;
-			return (1);
-		}
-		else if (strcmp(key, temp->key) == 0)
-		{
-			rep_val(ht, key, value, 1);
 			return (1);
 		}
 		if (temp->snext)
@@ -177,68 +177,4 @@ void shash_table_delete(shash_table_t *ht)
 	}
 	free(ht->array);
 	free(ht);
-}
-
-/**
- * rep_val - check if value exist for that key and replace
- * rather than setting
- * @ht: hash table
- * @key: key
- * @value: value to replace to
- * @typ: check if its the original list or the sorted list
- * Return: 1 if value replaced, 0 if value need to be set
-*/
-int rep_val(shash_table_t *ht, const char *key, const char *value, int typ)
-{
-	shash_node_t *tmp;
-	unsigned long int index;
-
-	index = hash_djb2((const unsigned char *)key) % ht->size;
-	if (ht == NULL)
-		exit(0);
-	tmp = ht->array[index];
-	if (typ == 0)
-	{
-		while (tmp)
-		{
-			if (strcmp(tmp->key, key) == 0)
-			{
-				free(tmp->value);
-				tmp->value = strdup(value);
-				if (tmp->value == NULL)
-					exit(0);
-				return (1);
-			}
-			tmp = tmp->next;
-		}
-	}
-	else
-	{
-		free(tmp->value);
-		tmp->value = strdup(value);
-		if (tmp->value == NULL)
-			exit(0);
-		return (1);
-	}
-	return (0);
-}
-/**
- * set_value - set value for new table
- * @ht: hash table
- * @key: key
- * @value: value to replace to
- * Return: 1 if value replaced, 0 if value need to be set
-*/
-
-shash_node_t *set_value(shash_table_t *ht, shash_node_t *new, const char *key, const char *value)
-{
-	unsigned long int index;
-
-	index = hash_djb2((const unsigned char *)key) % ht->size;
-	new->key = strdup(key); /* store key in node */
-	new->value = strdup(value); /* dup value to node */
-	new->next = ht->array[index]; /* attach new to head of list at index */
-	ht->array[index] = new; /* assign index pointer to new node */
-	new->snext = new->sprev = NULL;
-	return (new);
 }
