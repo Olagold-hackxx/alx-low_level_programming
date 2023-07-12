@@ -10,23 +10,32 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int i, absent, present = 0;
+	int i, j, match = 0, length = 0;
 
-	while (*s)
+	i = 0;
+	while (s[i] != 0)
 	{
-		i = 0;
-		absent = present;
-		while (*(accept + i) != '\0')
-		{
-			if (*(accept + i) == *s)
+		for (j = 0; accept[j] != 0; j++)
+
+			/*
+			 * if s[i] matches accepted char, increment
+			 * length, indicate match, and break loop.
+			 * otherwise, indicate no match yet.
+			 */
+
+			if (s[i] == accept[j])
 			{
-				present++;
+				length++;
+				match = 1;
+				break;
 			}
-			i++;
-		}
-		if (absent == present)
-			break;
-		s++;
+			else
+				match = 0;
+
+		/* if no matches for s[i] return length*/
+		if (!match)
+			return (length);
+		i++;
 	}
-	return (present);
+	return (length);
 }

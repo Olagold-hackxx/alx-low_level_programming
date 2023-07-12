@@ -1,35 +1,30 @@
 #include "main.h"
 
 /**
- * *_strncat - concatenates n string
- * @dest: string to concatenates to
- * @src: string to be concatenated
- * @n: length of string to be concatenated
- * Return: char
+ * *_strncat - concatenates two strings
+ * @dest: string to add to
+ * @src: string to add
+ * @n: number of consecutive byte to cat from src
+ *
+ * Description: concatenates two strings, up to
+ * the nth element of src string.
+ * Return: pointer to cat string
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
-	int i;
-	int dest_len = _strlen(dest);
+	int dest_i = 0, src_i = 0;
 
-	for (i = 0; i < n && src[i] != '\0'; i++)
-		dest[dest_len + i] = src[i];
-	dest[dest_len + i] = '\0';
+	while (dest[dest_i] != 0)
+		dest_i++;
+	while (src_i <= n - 1)
+	{
+		if (src[src_i] == '\0')
+			break;
+		dest[dest_i] = src[src_i];
+		src_i++;
+		dest_i++;
+	}
+	dest[dest_i] = '\0';
+
 	return (dest);
-}
-
-/**
- * _strlen - string length
- * @s: string
- * Return: string length
- */
-
-int _strlen(char *s)
-{
-	int count;
-
-	for (count = 0; s[count] != '\0'; count++)
-		;
-	return (count);
 }
