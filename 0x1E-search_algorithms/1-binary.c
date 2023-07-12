@@ -55,12 +55,12 @@ void printarray(int *array, int size, int start)
 {
 	int i;
 
-	printf("Searching in array: ");
+	fputs("Searching in array: ", stdout);
 	for (i = start; i <= size; i++)
 	{
-		printf("%d", array[i]);
+		fprintf(stdout, "%d", array[i]);
 		if ((i + 1) <= size)
-			printf(", ");
+			fputs(", ", stdout);
 	}
 	putchar('\n');
 }
