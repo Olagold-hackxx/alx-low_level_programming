@@ -1,6 +1,6 @@
 #include "search_algos.h"
 
-int binary_search(int *array, size_t size, int value);
+int binary_searchexp(int *array, size_t size, int value);
 int recurse_helper(int *array, size_t left, size_t right, int value);
 
 /**
@@ -38,14 +38,14 @@ int exponential_search(int *array, size_t size, int value)
 }
 
 /**
- * binary_search - search for value in array of sorted ints
+ * binary_searchexp - search for value in array of sorted ints
  * @array: array to search
  * @size: size of array
  * @value: value to search
  *
  * Return: index of found value; or -1 if not found
  */
-int binary_search(int *array, size_t size, int value)
+int binary_searchexp(int *array, size_t size, int value)
 {
 	if (array == NULL)
 		return (-1);

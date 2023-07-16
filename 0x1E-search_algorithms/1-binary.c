@@ -6,7 +6,7 @@ int binary_search_recursive(int *array, int firstIndex, int size, int value);
 
 /**
  * binary_search - Implement binary search algorithm
- * @array: array to search
+:x
  * @size: size of array
  * @value: value to search for
  * Return: index of value or -1 if not found
